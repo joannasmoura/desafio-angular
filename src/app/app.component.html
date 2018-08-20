@@ -45,10 +45,10 @@
                   </dl>
                </td>
               <td class="mdl-data-table__cell--non-numeric">
-                  <button *ngIf="m.status == 1" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                  <button *ngIf="m.status == 1" (click)="changeStatus(m.status, m.id)" class="mdl-button mdl-js-button mdl-js-ripple-effect">
                       OFF
                   </button>
-                  <button *ngIf="m.status == 0" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                  <button *ngIf="m.status == 0" (click)="changeStatus(m.status, m.id)" class="mdl-button mdl-js-button mdl-js-ripple-effect">
                     ON
                 </button>
               </td>

@@ -10,8 +10,16 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
   maquinas;
+  params;
   constructor(private http: HttpClient){
+  }
 
+  changeStatus(status, id) : void {
+    this.params = {"status": status, "id": id}
+    this.http.put('urlPut', this.params).subscribe(data => {
+      console.log(data);
+      this.maquinas = data;
+    });
   }
 
   ngOnInit(): void {
