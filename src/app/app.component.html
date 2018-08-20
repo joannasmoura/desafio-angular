@@ -30,28 +30,26 @@
           <thead>
             <tr>
               <th class="mdl-data-table__cell--non-numeric">Máquina</th>
-              <th class="mdl-data-table__cell--non-numeric">Status</th>
+              <th class="mdl-data-table__cell--non-numeric">Monitoramento</th>
               <th class="mdl-data-table__cell--non-numeric">Processos</th>
               <th class="mdl-data-table__cell--non-numeric">Ação</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric">Infra</td>
-              <td class="mdl-data-table__cell--non-numeric">Monitoramento Ligado</td>
-              <td class="mdl-data-table__cell--non-numeric">Processo 1</td>
+            <tr *ngFor="let m of maquinas">
+              <td class="mdl-data-table__cell--non-numeric">{{m.nome}}</td>
+              <td class="mdl-data-table__cell--non-numeric">{{m.status | statusFilter}}</td>
               <td class="mdl-data-table__cell--non-numeric">
-                  <a href="/#">Desligar</a>
+                  <dl>
+                    <li *ngFor="let p of m.processos">{{p.nome}}</li>
+                  </dl>
+               </td>
+              <td class="mdl-data-table__cell--non-numeric">
+                  <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                      ON
+                  </button>
               </td>
             </tr>
-            <tr>
-                <td class="mdl-data-table__cell--non-numeric">Dev</td>
-                <td class="mdl-data-table__cell--non-numeric">Monitoramento Desligado</td>
-                <td class="mdl-data-table__cell--non-numeric">Processo 3</td>
-                <td class="mdl-data-table__cell--non-numeric">
-                    <a href="/#">Ligar</a>
-                </td>
-              </tr>
           </tbody>
         </table>
       </div>
